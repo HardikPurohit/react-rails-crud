@@ -14,7 +14,7 @@ class StudentForm extends React.Component {
           thisObj.props.refreshList();
         }, "json");
       } else {
-        id = $('#id').val();
+        var id = $('#id').val();
         $.ajax({
           url: `api/v1/students/${id}`,
           method: 'PATCH',

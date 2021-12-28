@@ -25,9 +25,13 @@ class Api::V1::StudentsController < ApplicationController
 
   def update
     if @student.update(student_params)
-      format.json { render json: { status: :ok } }
+      respond_to do |format|
+        format.json { render json: { status: :ok } }
+      end
     else
-      format.json { render json: @student.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        format.json { render json: @student.errors, status: :unprocessable_entity }
+      end
     end
   end
 
